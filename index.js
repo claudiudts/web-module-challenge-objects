@@ -13,8 +13,9 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(itemName, itemPrice, itemCategory){
+  const item1 = {name: itemName , price: itemPrice, category: itemCategory }
+  return item1
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -25,6 +26,14 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+
+const cheeseBurger = createMenuItem('Cheese Burger', 12, 'Lunch');
+console.log(cheeseBurger);
+const hamAndCheese = createMenuItem('Ham and Cheese', 9, 'Breakfast');
+console.log(hamAndCheese);
+const gritsAndGravy = createMenuItem('Grits and Gravy', 10, 'Lunch');
+console.log(gritsAndGravy);
+
 
 
 
@@ -48,6 +57,21 @@ export const burger = {
   /*Your code here*/
 }
 
+burger.discount = function(status) {
+  if (status === "teacher") {
+    return this.price * .75;
+  }
+  if (status === "student") {
+    return this.price * .75;
+  }
+  if (status === "public") {
+    return this.price * .90;
+  }
+}
+
+console.log(burger.discount("public"));
+
+
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -65,7 +89,8 @@ const reviews = [
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console
-*/
+*/ 
+console.log(reviews[5]);
 
 
 
@@ -75,7 +100,13 @@ Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+ reviews[8] = {
+   name: "Jack",
+   rating: 4.5,
+   feedback: "What a wonderful film, so much joy"
+ };
 
+//  console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -84,6 +115,8 @@ Reyna's feedback is missing! Use what you know to do the following:
   2. log the reviews array to the console to check your work
 */
 
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays"
+console.log(reviews);
 
 
 
@@ -92,15 +125,20 @@ Reyna's feedback is missing! Use what you know to do the following:
 Write a function to return a review based on the index of the review in the array.
 
 Use the getReviewByIndex function below to do the following:
-  1. Receive two arguements: the array that holds all the reviews and an index position of the review to display
+  1. Receive two arguments: the array that holds all the reviews and an index position of the review to display
   2. The function should return the following string: "{name} gave the restaurant a {rating} star review, and their feedback was: {feedback}"
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(reviews, position) {
+  for (let i = 0; i < reviews.length; i++){
+    if (reviews[i] === reviews[position]) {
+      return reviews[position].name + ' gave the restaurant a ' + reviews[position].rating + ' star review, and their feedback was: ' + reviews[position].feedback
+    }
+  }
 }
+console.log(getReviewByIndex(reviews, 3));
 
 
   
@@ -116,10 +154,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(reviews) {
+  var lastReview = reviews[reviews.length - 1]
+  return `${lastReview.name} gave the restaurant a ${lastReview.rating} star review, and their feedback was: ${lastReview.feedback}`;
 } 
 
+console.log(getLastReview);
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
@@ -133,13 +173,14 @@ Use the getReviewsByRating function below to do the following:
   For example: getReviewByRating(reviews, 4) would return these reviews in the 4 range (4-4.9):
   [
     {name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
-    {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
+    {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly recommend."},
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(reviews, rating) {
+    let ratedRating = [];
+    
   }
 
   
@@ -179,9 +220,8 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odoReading) {
+  
 }
 
 
